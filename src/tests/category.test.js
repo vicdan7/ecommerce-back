@@ -12,8 +12,11 @@ beforeAll(async () => {
     password: "maria123"
   };
 
-  const res = await request(app).post(BASE_URL_USERS).send(user);
-  TOKEN = res.body.token
+  const res = await request(app)
+    .post(BASE_URL_USERS)
+    .send(user)
+  
+    TOKEN = res.body.token
 })
 
 test("POST -> 'BASE_URL', should return status code 201 and res.body.name === body.name", async () => {
