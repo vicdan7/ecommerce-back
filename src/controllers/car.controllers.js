@@ -22,7 +22,14 @@ const create = catchError(async(req, res) => {
 
 const remove = catchError(async(req, res) => {
     const { id } = req.params;
-    await Car.destroy({ where: {id} });
+    const userId = req.user.id
+    const result = await Car.destroy({ 
+        where: {
+            id,
+            userId
+        } 
+    });
+    if(!result) res.sendStatus(404)
     return res.sendStatus(204);
 });
 
