@@ -3,6 +3,9 @@ const Category = require("./Category")
 const Car = require("./Car")
 const User = require("./User")
 const Purchase = require("./Purchase")
+const ProductImg = require("./ProductImg")
+
+
 
 //Product -> //categoryId
 Product.belongsTo(Category)
@@ -23,3 +26,8 @@ User.hasMany(Purchase)
 //Purchase -> //productId
 Purchase.belongsTo(Product)
 Product.hasMany(Purchase)
+
+//ProductImg -> //productId
+ProductImg.belongsTo(Product)
+Product.hasMany(ProductImg)
+
