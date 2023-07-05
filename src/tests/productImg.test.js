@@ -37,15 +37,15 @@ test("POST 'BASE_URL', should resturn status code 201, res.body.url to be define
 test("GET-> 'BASE_URL', should return status code 200 and res.body.length === 1", async () => {
 
     const res = await request(app)
-      .get(BASE_URL)
-      .set("Authorization", `Bearer ${TOKEN}`)
+        .get(BASE_URL)
+        .set("Authorization", `Bearer ${TOKEN}`)
       
     expect(res.status).toBe(200);
     expect(res.body).toHaveLength(1)
   })
 
 
-  test("DELETE -> 'BASE_URL/:id', should status code 204", async()=>{
+test("DELETE -> 'BASE_URL/:id', should status code 204", async()=>{
 
     const res = await request(app)
         .delete(`${BASE_URL}/${productImgId}`)
